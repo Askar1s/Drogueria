@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfil de usuario en el sistema de gestión.">
+    <meta name="author" content="Tu Nombre o Empresa">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/profiel.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome para íconos -->
+</head>
+<body>
+    <header class="main-header">
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+            <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+            </svg></label>
+        <input type="checkbox" id="btn-nav">
+        <nav>
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="stok.html">Stock</a></li>
+                <li><a href="facturacion.html">Facturación</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="edit.html">Editar perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Contenedor del perfil del usuario -->
+        <div class="perfil" id="perfil-container">
+            <!-- Aquí se actualizarán los datos del perfil con JavaScript -->
+        </div>
+    
+        <!-- Botón de Cerrar Sesión -->
+        <div class="logout-container">
+            <button id="logoutButton" class="logout-btn">Cerrar sesión</button>
+        </div>
+        
+        <!-- Contenedor de los Perfiles -->
+        <div class="perfil-list" id="perfil-list-container">
+            <!-- Aquí se actualizarán los perfiles de todos los usuarios -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+      window.onload = function() {
+          const email = localStorage.getItem('userEmail');
+          
+          if (!email) {
+              alert('No has iniciado sesión. Redirigiendo al login...');
+              window.location.href = 'login.html'; // Redirigir al login si no hay correo en localStorage
+              return;
+          }
+
+          // Obtener el perfil del usuario actual
+          fetch(`http://localhost:3000/getProfile?email=${email}`)
+              .then(response => response.json())
+              .then(data => {
+                  if (data.error) {
+                      document.getElementById('perfil-container').innerHTML = `<p>${data.error}</p>`;
+                  } else {
+                      const perfilHTML = `
+                          <h3>Bienvenido, ${data.nombre}</h3>
+                          <p><strong>Cargo:</strong> ${data.cargo}</p>
+                          <p><strong>Email:</strong> ${data.email}</p>
+                      `;
+                      document.getElementById('perfil-container').innerHTML = perfilHTML;
+
+                      // Almacenar el cargo del usuario logueado en una variable global
+                      localStorage.setItem('userRole', data.cargo);
+                  }
+              })
+              .catch(error => {
+                  console.error('Error al obtener los datos del perfil:', error);
+              });
+
+          // Obtener todos los perfiles de usuario
+          fetch('http://localhost:3000/getAllProfiles') // Ruta para obtener todos los perfiles de usuarios
+              .then(response => response.json())
+              .then(data => {
+                  if (data.error) {
+                      document.getElementById('perfil-list-container').innerHTML = `<p>${data.error}</p>`;
+                  } else {
+                      let profilesHTML = '<h2>Lista de Usuarios</h2><ul>';
+                      data.forEach(user => {
+                          profilesHTML += `
+                              <li>
+                                  <h3>${user.nombre}</h3>
+                                  <p><strong>Email:</strong> ${user.email}</p>
+                                  <label><strong>Cargo:</strong></label>
+                                   <select id="cargo" name="cargo" data-email="${user.email}">
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Vendedor">Vendedor</option>
+                                    </select>
+                                  <button class="edit-button" id="editButton-${user.email}" onclick="editCargo('${user.email}')">Guardar</button>
+                              </li>
+                          `;
+                      });
+                      profilesHTML += '</ul>';
+                      document.getElementById('perfil-list-container').innerHTML = profilesHTML;
+
+                      // Verificar si el usuario logueado es administrador y habilitar los botones de edición
+                      const userRole = localStorage.getItem('userRole');
+                      if (userRole !== 'Administrador') {
+                          // Si el usuario no es administrador, desactivar los botones de edición
+                          const editButtons = document.querySelectorAll('.edit-button');
+                          editButtons.forEach(button => {
+                              button.disabled = true;
+                              button.style.backgroundColor = '#ccc';
+                          });
+                      }
+                  }
+              })
+              .catch(error => {
+                  console.error('Error al obtener los perfiles:', error);
+              });
+      };
+
+      // Función para editar el cargo
+      function editCargo(email) {
+          const newCargo = document.querySelector(`select[data-email="${email}"]`).value;
+
+          if (!newCargo) {
+              alert("Por favor seleccione un cargo válido.");
+              return;
+          }
+
+          const userRole = localStorage.getItem('userRole');
+
+          // Si el usuario logueado no es un administrador, no permitir editar
+          if (userRole !== 'Administrador') {
+              alert('No tienes permisos para cambiar el cargo de otros usuarios.');
+              return;
+          }
+
+          // Hacer una solicitud para actualizar el cargo del usuario
+          fetch('http://localhost:3000/updateCargo', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ email: email, newCargo: newCargo })
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  alert("Cargo actualizado correctamente");
+              } else {
+                  alert("Error al actualizar el cargo");
+              }
+          })
+          .catch(error => {
+              console.error('Error al actualizar el cargo:', error);
+          });
+      }
+
+      // Función para cerrar sesión
+      document.getElementById('logoutButton').addEventListener('click', function() {
+          localStorage.removeItem('userEmail');
+          localStorage.removeItem('userRole'); // Limpiar el cargo del usuario logueado
+          window.location.href = 'login.html';
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+#intro {
+    background-color: #007bff;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    margin:10px;
+    border-radius: 10px;
+}
+
+.carousel {
+    position: relative;
+    width: 90%; /* Aumenta el ancho para pantallas pequeñas */
+    max-width: 800px; /* Máximo ancho para pantallas grandes */
+    margin: 20px auto; /* Margen superior e inferior */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+}
+
+.carousel-item {
+    z-index: 1;
+    flex: 0 0 100%; /* Cada item ocupará el 100% del contenedor */
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados para los items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+}
+
+.carousel-item img {
+    max-width: 100%; /* Asegura que la imagen sea responsiva */
+    height: auto; /* Mantiene la proporción de aspecto */
+    display: block;
+    margin: 0 auto; /* Centra la imagen */
+}
+@media (max-width: 600px) {
+
+    .carousel-item {
+        
+        padding: 15px; /* Ajusta el padding para pantallas pequeñas */
+    }
+}

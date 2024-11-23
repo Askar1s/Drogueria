@@ -1,0 +1,276 @@
+/* Estilo para el header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los formularios */
+form {
+    margin: 30px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los inputs */
+input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+/* Estilo para el botón */
+button {
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las celdas y encabezados de la tabla */
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Estilo para el encabezado */
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Estilo para el fondo de las filas */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para los botones de acción (editar, agotar) */
+button.edit {
+    background-color: #ffa500;
+    color: white;
+    font-size: 14px;
+}
+
+button.edit:hover {
+    background-color: #e69500;
+}
+
+button.outofstock {
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 14px;
+}
+
+button.outofstock:hover {
+    background-color: #e04a4a;
+}
+
+/* Estilo para las imágenes de los productos (si se incluyen) */
+.product-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-left: 5px;
+}
+
+/* Estilo para la tabla de productos */
+#product-table th, #product-table td {
+    text-align: center;
+    padding: 12px;
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* Agregar márgenes a los elementos de la navegación en el menú */
+
+
+/* Responsivo para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    /* Hacer que el header sea más compacto en dispositivos pequeños */
+    header {
+        padding: 15px 0;
+    }
+
+    /* El formulario se ajusta al 100% de ancho */
+    form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    /* Inputs se ajustan al 100% del ancho */
+    input {
+        width: 100%;
+    }
+
+    /* El botón se ajusta al 100% */
+    button {
+        width: 100%;
+    }
+
+    /* Tabla: ajustar el ancho de las celdas */
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* Ajustar los botones dentro de la tabla */
+    button.edit, button.outofstock {
+        width: 100%;
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+    /* Navegación en dispositivos pequeños (menú de hamburguesa) */
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navigation li {
+        margin: 10px 0;
+    }
+
+    .btn-nav {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    #btn-nav:checked ~ nav {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+/* Responsivo para dispositivos muy pequeños (móviles) */
+@media screen and (max-width: 480px) {
+    /* Ajustar la fuente de la tabla */
+    table, th, td {
+        font-size: 12px;
+    }
+
+    /* El formulario se ajusta al 90% de ancho */
+    form {
+        width: 90%;
+        padding: 10px;
+    }
+
+    /* Ajuste adicional para los botones */
+    button {
+        font-size: 14px;
+    }
+
+    /* Ajuste de imágenes */
+    .product-image {
+        width: 60px;
+        height: 60px;
+    }
+}
+/* Estilo para productos agotados */
+.producto-agotado {
+    opacity: 0.5; /* Hacerlo opaco */
+    text-decoration: line-through; /* Línea atravesada */
+}
+
+/* Estilo para productos reactivados */
+.producto-reactivado {
+    background-color: #d4edda; /* Fondo verde claro para los productos reactivados */
+}
+
+/* Estilo para la tabla */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para los botones de acción (editar, agotar) */
+button.edit {
+    background-color: #ffa500;
+    color: white;
+    font-size: 14px;
+}
+
+button.outofstock {
+    background-color: #ff4d4d;
+    color: white;
+    font-size: 14px;
+}
+
+button.outofstock:hover {
+    background-color: #e04a4a;
+}

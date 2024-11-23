@@ -1,0 +1,233 @@
+/* Estilos del perfil */
+.perfil {
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 420px;
+    margin: 30px auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    transition: box-shadow 0.3s ease;
+}
+
+.perfil:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.perfil h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.perfil img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border: 4px solid #007BFF;
+    transition: transform 0.3s ease;
+}
+
+.perfil img:hover {
+    transform: scale(1.1);
+}
+
+.perfil p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+/* Estilo para el contenedor del botón de cerrar sesión */
+.logout-container {
+    text-align: center;  /* Centrado del botón */
+    margin-top: 30px;  /* Espacio superior para separar de la información */
+}
+
+/* Botón de Cerrar Sesión */
+.logout-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.logout-btn:hover {
+    background-color: #e63946;
+    transform: scale(1.05);
+}
+
+
+.btn-editar, .btn-ver {
+    background-color: #45a049;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-editar:hover, .btn-ver:hover {
+    background-color: #387d3b;
+    transform: scale(1.05);
+}
+
+/* Estilo para el botón de guardar */
+.btn-guardar {
+    background-color: #008CBA;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-guardar:hover {
+    background-color: #007b8f;
+    transform: scale(1.05);
+}
+
+/* Diseño y disposición de la sección contacto */
+.perfil .contacto {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.perfil .contacto p {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Fondo del contenedor de perfil */
+.perfil-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-container h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Estilos para enlaces y otras interacciones */
+a {
+    text-decoration: none;
+    color: #007BFF;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Efecto para botones en un contenedor (para editar, ver perfil) */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+        /* Estilos para la lista de perfiles */
+        .perfil-list {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .perfil-list h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .perfil-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .perfil-list li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .perfil-list li h3 {
+            font-size: 20px;
+            margin: 0;
+            color: #333;
+        }
+
+        .perfil-list li p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .perfil-list .editable-cargo {
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 16px;
+            width: 200px;
+            border-radius: 5px;
+        }
+
+        .perfil-list .edit-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .perfil-list .edit-button:hover {
+            background-color: #45a049;
+        }
+
+        .logout-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .logout-btn {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: #e60000;
+        }

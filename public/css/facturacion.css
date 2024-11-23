@@ -1,0 +1,196 @@
+     /* Estilo para el formulario */
+     .factura {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #f7f7f7, #ffffff);
+    }
+
+    .factura h2 {
+        text-align: center;
+        font-size: 28px;
+        color: #4a4a4a;
+        margin-bottom: 30px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Estilos del formulario */
+    form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    form label {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    form input {
+        padding: 12px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        background-color: #f9f9f9;
+    }
+
+    form input:focus {
+        border-color: #4CAF50;
+        outline: none;
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        background-color: #fff;
+    }
+
+    /* Estilo del botón */
+    form button {
+        background-color: #4c82af;
+        color: white;
+        padding: 12px 20px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        font-weight: bold;
+    }
+
+    form button:hover {
+        background-color: #45a049;
+        transform: translateY(-3px);
+    }
+
+    form button:active {
+        background-color: #388e3c;
+        transform: translateY(1px);
+    }
+
+    /* Estilos para los productos agregados */
+    #productos-container {
+        margin-bottom: 20px;
+    }
+
+    .producto-item {
+        background-color: #f1f1f1;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 15px;
+    }
+
+    .producto-item input {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 2px solid #ccc;
+        background-color: #fff;
+    }
+
+    .remove-producto {
+        background-color: #e57373;
+        color: white;
+        padding: 8px 15px;
+        font-size: 14px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        align-self: flex-start;
+    }
+
+    .remove-producto:hover {
+        background-color: #d32f2f;
+    }
+
+    /* Estilos para el botón de agregar productos */
+    #add-producto {
+        background-color: #00796b;
+        color: white;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        width: 100%;
+    }
+
+    #add-producto:hover {
+        background-color: #004d40;
+        transform: translateY(-3px);
+    }
+
+    #add-producto:active {
+        background-color: #003d33;
+        transform: translateY(1px);
+    }
+
+    /* Responsividad */
+    @media (max-width: 768px) {
+        .factura {
+            padding: 20px;
+        }
+
+        form {
+            grid-template-columns: 1fr;
+        }
+
+        .producto-item {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Estilo del contenedor de facturas */
+    #facturas-list {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    /* Estilo para cada ítem de la lista */
+    #facturas-list li {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 15px;
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Estilo para el texto dentro de la lista */
+    #facturas-list li span {
+        font-weight: bold;
+    }
+
+    /* Estilo para el precio total */
+    #facturas-list li .total {
+        color: #2d9cdb;
+        font-size: 18px;
+    }
+
+    /* Estilo para los botones o acciones en la lista */
+    #facturas-list li button {
+        background-color: #ff5c5c;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    /* Cambiar color de fondo al pasar el ratón sobre el botón */
+    #facturas-list li button:hover {
+        background-color: #e14e4e;
+    }

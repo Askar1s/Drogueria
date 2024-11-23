@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droguería Salud y Bienestar</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/index.css"
+</head>
+<body id="cuerpo">
+    <header class="main-header">
+        <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+            <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+            </svg></label>
+        <input type="checkbox" id="btn-nav">
+        <nav>
+			<ul class="navigation">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="stok.html">stok</a></li>
+                <li><a href="facturacion.html">Facturacion</a></li>
+				<li><a href="perfil.html">perfil</a></li>
+				<li><a href="edit.html">Editar perfil</a></li>
+			  </ul>
+        </nav>
+      </header>
+      <body>
+        <section id="intro">
+            <h2>Bienvenido KioscoSalud</h2>
+            <p>Bienvenido a KioscoSalud, tu solución integral para la gestión de operaciones y 
+                facturación en el sector farmacéutico.</p>
+        </section>
+    
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="../public/Img/1.jpg" alt="Medicamento 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="../public/Img/2.jpg" alt="Medicamento 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="../public/Img/3.jpg" alt="Medicamento 3">
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            const carouselInner = document.querySelector('.carousel-inner');
+            const items = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+    
+            function updateCarousel() {
+                const offset = -currentIndex * 100;
+                carouselInner.style.transform = `translateX(${offset}%)`;
+            }
+    
+            // Función para el desplazamiento automático
+            function autoSlide() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            }
+    
+            // Establecer un intervalo de 3 segundos para el desplazamiento automático
+            setInterval(autoSlide, 3000);
+        </script>
+    <footer>
+        <p>&copy; 2024 Droguería Salud y Bienestar - Tu salud, nuestra prioridad.</p>
+    </footer>
+</body>
+</html>
