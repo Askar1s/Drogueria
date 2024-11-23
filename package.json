@@ -5,7 +5,7 @@
   "scripts": {
     "start": "concurrently \"nodemon index.js\" \"nodemon database/server.js\""
   },
-  "author": "santiago",
+  "author": "Victor Manuel Romero Guerrero",
   "license": "ISC",
   "description": "",
   "dependencies": {
